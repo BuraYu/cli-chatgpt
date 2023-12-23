@@ -22,26 +22,60 @@
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('userInputForm');
     const userInput = document.getElementById('userInput');
+    const container = document.querySelector('.container');
+    const addedElements = []; // Keep track of added elements
   
     form.addEventListener('submit', function (event) {
-      submitForm(event);
+        event.preventDefault();
+        submitForm();
     });
   
     userInput.addEventListener('keydown', function (event) {
-      handleKeyDown(event);
+        if (event.key === 'Enter') {
+            submitForm();
+        }
     });
-  });
   
-  function submitForm(event) {
-    event.preventDefault();
-    const userInputValue = document.getElementById('userInput').value;
-    console.log('Submitted user input:', userInputValue);
-  }
+    function submitForm() {
+        const userInputValue = userInput.value;
+        if (userInputValue.trim() !== '') {
+            if (userInputValue.trim().toLowerCase() === 'clear') {
+                // If the input is 'clear', remove only the added elements
+                removeAddedElements();
+            } else if(userInputValue.trim().toLowerCase() === 'help') {
+                helpUser();
+            }
+            
+            else {
+                const newElement = document.createElement('p');
+                newElement.textContent = userInputValue;
+                container.insertAdjacentElement('beforebegin', newElement); // Insert above the form
+                userInput.value = '';
+                userInput.focus();
   
-  function handleKeyDown(event) {
-    if (event.key === 'Enter') {
-      submitForm(event);
+                // Add the new element to the tracking array
+                addedElements.push(newElement);
+            }
+        }
     }
+  
+    function helpUser() {
+      const newElement = document.createElement('p');
+      newElement.textContent = 'you can try the following: help, user, credintials';
+      container.insertAdjacentElement('beforebegin', newElement);
+      userInput.value = '';
+      userInput.focus();
   }
   
+  function removeAllAboveContainer() {
+    let currentElement = container;
+    while (currentElement.previousSibling) {
+        const siblingToRemove = currentElement.previousSibling;
+        siblingToRemove.parentNode.removeChild(siblingToRemove);
+    }
+}
+  });
+
+
+
 // main();
