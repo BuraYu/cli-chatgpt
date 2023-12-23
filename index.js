@@ -45,16 +45,19 @@ document.addEventListener('DOMContentLoaded', function () {
             } else if (userInputValue.trim().toLowerCase() === 'help') {
                 helpUser();
             } else {
-                const newElement = document.createElement('p');
-                newElement.textContent = userInputValue;
-                container.insertAdjacentElement('beforebegin', newElement); // Insert above the form
-                userInput.value = '';
-                userInput.focus();
-
-                // Add the new element to the tracking array
-                addedElements.push(newElement);
+                
+        unknownInput(userInputValue);
             }
         }
+    }
+
+    function unknownInput(userInputValue) {
+        const newElement = document.createElement('p');
+        newElement.textContent = 'unknown command: ' + userInputValue;
+        container.insertAdjacentElement('beforebegin', newElement); 
+        userInput.value = '';
+        userInput.focus();
+        addedElements.push(newElement);
     }
 
     function helpUser() {
