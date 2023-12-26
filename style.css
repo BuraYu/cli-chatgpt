@@ -1,18 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,200&family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,200&family=Roboto:wght@400;700&display=swap");
 
 * {
-    box-sizing: border-box; /* adding border and padding doesn't effect the border of it  */
+  box-sizing: border-box; /* adding border and padding doesn't effect the border of it  */
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    margin-left: 10px;
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: left;
+  font-family: "monospaced";
+  background-color: black;
+  color: white;
+  margin: 0;
+  margin-left: 10px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
 }
 
 #userInputForm {
@@ -20,21 +22,26 @@ body {
   flex-direction: row;
 }
 
-input{
+input {
   border: none;
   width: 60%;
   outline: none;
+  background-color: black;
+  color: white;
+  caret-color: green; /* Set the color of the caret (cursor) */
+  font-family: monospace;
 }
 
-input[type=text]:focus{
+input[type="text"]:focus {
   border: none;
+  caret-shape: block;
 }
 
 .container {
   line-height: normal;
 }
 
-p {
+pre {
   font-size: 12px;
   margin: 0;
 }
