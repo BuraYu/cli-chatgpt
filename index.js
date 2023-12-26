@@ -51,6 +51,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    const help = [
+        'whois:             Shows the creater of the CLI',       
+        'socials:           Shows tqe social credentials of the creator',
+        'input:             Enter an prompt to get ChatGPT response',
+        'user:              Shows current User',
+        'password:          Generate a password'
+    ]
+
     function unknownInput(userInputValue) {
         const newElement = document.createElement('p');
         newElement.textContent = 'unknown command: ' + userInputValue;
@@ -61,12 +69,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function helpUser() {
-        const newElement = document.createElement('p');
-        newElement.textContent = 'you can try the following: help, user, credentials';
-        container.insertAdjacentElement('beforebegin', newElement);
-        userInput.value = '';
-        userInput.focus();
+        const preElement = document.createElement('pre');
+    help.forEach(element => {
+        preElement.textContent += element + '\n';
+    });
+
+    container.insertAdjacentElement('beforebegin', preElement);
+    userInput.value = '';
+    userInput.focus();
+        
+        
     }
+
+
 
     function removeAllAboveContainer() {
         let currentElement = container;

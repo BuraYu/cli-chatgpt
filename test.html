@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Append Letter by Letter</title>
+  <style>
+    #output {
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="output"></div>
+
+  <script>
+    // Function to append text letter by letter
+    function appendTextLetterByLetter(element, text, speed) {
+      let index = 0;
+
+      function appendLetter() {
+        element.textContent += text[index];
+        index++;
+
+        if (index < text.length) {
+          setTimeout(appendLetter, speed);
+        }
+      }
+
+      appendLetter();
+    }
+
+    // Get the output div
+    const outputDiv = document.getElementById('output');
+
+    // Your paragraph text
+    const paragraphText = "This is a sample paragraph that will be appended letter by letter.";
+
+    // Call the function to append text letter by letter
+    appendTextLetterByLetter(outputDiv, paragraphText, 25); // Adjust the speed as needed
+  </script>
+</body>
+</html>
