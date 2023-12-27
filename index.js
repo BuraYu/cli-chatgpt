@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const help = [
     "##############################################################################",
     "#                                                                            #",
-    "# whois:git  Shows the creater of the CLI                            #",
+    "# whois:             Shows the creater of the CLI                            #",
     "# socials:           Shows tqe social credentials of the creator             #",
     "# input:             Enter an prompt to get ChatGPT response                 #",
     "# user:              Shows current User                                      #",
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Call the function to append text letter by letter
     appendTextLetterByLetter(
       newElement,
-      "unknown command: " + userInputValue,
+      'unknown command: ' + userInputValue + '. Please try "help"',
       25
     ); // Adjust the speed as needed
 
