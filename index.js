@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
       } else if (userInputValue.trim().toLowerCase() === "socials") {
         socials();
       } else if (userInputValue.trim().toLowerCase() === "input") {
-        helpUser();
+        input(userInputValue);
       } else if (userInputValue.trim().toLowerCase() === "user") {
         helpUser();
       } else if (userInputValue.trim().toLowerCase() === "password") {
@@ -121,16 +121,30 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function whois(userInputValue) {
-    const newElement = document.createElement("pre");
+    const newElement = document.createElement("p");
+    newElement.classList.add("whois-class");
+
     container.insertAdjacentElement("beforebegin", newElement);
     addedElements.push(newElement);
 
     appendTextLetterByLetter(
       newElement,
-      "Hello, I'm Burak! 👋 Currently immersed in the world of Full Stack Development, I find immense\njoy in the process of crafting digital solutions that seamlessly come to life. The intricate dance\nbetween front-end and back-end technologies has become my playground, and each line of code feels\nlike a stroke on a canvas, bringing ideas to reality. The learning journey has been incredibly rewarding,\nand I can't wait to explore more facets of the ever-evolving tech landscape.\nLet's code and create together! 🚀✨",
+      "Hello, I'm Burak! 👋 Currently immersed in the world of Full Stack Development, I find immense joy in the process of crafting digital solutions that seamlessly come to life. The intricate dance between front-end and backend technologies has become my playground, and each line of code feels like a stroke on a canvas, bringing ideas to reality. The learning journey has been incredibly rewarding, and I can't wait to explore more facets of the ever-evolving tech landscape. Let's code and create together! 🚀✨",
       10
     ); // Adjust the speed as needed
 
+    userInput.value = "";
+    userInput.focus();
+  }
+
+  function input() {
+    const newElement = document.createElement("p");
+    newElement.classList.add("input-form-animation");
+
+    container.insertAdjacentElement("beforebegin", newElement);
+    addedElements.push(newElement);
+
+    newElement.textContent = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor rerum quae alias eum dignissimos deleniti a labore voluptates molestiae. Iste eaque cumque ad, voluptatem in excepturi, explicabo iure rerum velit quis at, maxime ut ducimus doloremque necessitatibus dolorum! Vero quidem consectetur eum! Illo praesentium ex fugit aspernatur natus aliquam asperiores.'
     userInput.value = "";
     userInput.focus();
   }
@@ -152,6 +166,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function helpUser() {
     const preElement = document.createElement("pre");
+    preElement.classList.add("help-user-animation");
+
     help.forEach((element) => {
       preElement.textContent += element + "\n";
     });

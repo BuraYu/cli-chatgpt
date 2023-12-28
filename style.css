@@ -1,12 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,200&family=Roboto:wght@400;700&display=swap");
-
 * {
   box-sizing: border-box; /* adding border and padding doesn't effect the border of it  */
 }
 
 body {
   font-family: "monospaced";
-  background-color: black;
+  background-color: #414141;
   color: white;
   margin: 0;
   margin-left: 10px;
@@ -15,6 +13,7 @@ body {
   flex-direction: column;
   align-items: left;
   justify-content: left;
+  width: 80%;
 }
 
 #userInputForm {
@@ -27,19 +26,45 @@ input {
   border: none;
   width: 60%;
   outline: none;
-  background-color: black;
+  background-color: #414141;
   color: white;
   caret-color: green; /* Set the color of the caret (cursor) */
   font-family: monospace;
+  font-size: 12px;
 }
 
 input[type="text"]:focus {
   border: none;
 }
 
+
+.input-message{
+  color: #519975;
+  font-weight: bold;
+}
 .container {
   line-height: normal;
+  overflow: auto;
 }
+
+.whois-class {
+  font-size: 12px;
+  margin: 0;
+  font-family: monospace;
+  letter-spacing: -1px;
+
+}
+
+.help-user-animation{
+  white-space: wrap;
+  animation: typing 2s steps(30, end);
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
 
 pre {
   font-size: 12px;
@@ -58,7 +83,7 @@ pre {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: rainbow_animation 6s ease-in-out infinite;
+  animation: rainbow_animation 2s ease-in-out infinite;
   background-size: 400% 100%;
 }
 
